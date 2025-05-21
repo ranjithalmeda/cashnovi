@@ -7,8 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/main.js" defer></script>
-    <script>
+    <script src="js/theme.js" defer></script>    <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -24,192 +25,341 @@
                             700: '#0E7A60',
                             800: '#095945',
                             900: '#04382A',
-                        },
+                        }
                     },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    }
                 },
             },
         }
-    </script>
-    <style>
+    </script><style>        /* Base styles */
+        .gradient-text {
+            background: linear-gradient(to right, #18BC96, #139B7B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid rgba(24, 188, 150, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: #18BC96;
+            box-shadow: 0 0 20px rgba(24, 188, 150, 0.1);
+            transform: translateY(-5px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .card {
+                background: #1F2937;
+                border-color: rgba(24, 188, 150, 0.2);
+            }
+            
+            .card:hover {
+                border-color: #18BC96;
+                box-shadow: 0 0 20px rgba(24, 188, 150, 0.2);
+            }
+        }
         .gradient-bg {
             background: linear-gradient(135deg, #18BC96 0%, #139B7B 100%);
         }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
         .hover-scale {
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .hover-scale:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(24, 188, 150, 0.1), 0 10px 10px -5px rgba(24, 188, 150, 0.04);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #18BC96, #139B7B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+        .button-gradient {
+            background: linear-gradient(135deg, #18BC96 0%, #139B7B 100%);
+            transition: all 0.3s ease;
+        }
+        .button-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(24, 188, 150, 0.2);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }        .transform-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            perspective: 1000px;
+        }
+        .transform-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">    <!-- Navigation -->    <nav class="bg-white dark:bg-gray-800 fixed w-full z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold text-primary">CashNovi</h1>
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="block">
+                        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="h-20 w-auto transition-opacity">
+                    </a>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Dashboard</a>
-                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Earn</a>
-                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Rewards</a>
-                        <a href="#" class="text-gray-600 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Profile</a>
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Dashboard</a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Earn</a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Rewards</a>
+                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Profile</a>
                     </div>
-                </div>
-                <div class="flex items-center">
-                    <button class="bg-primary text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-primary-600 transition-colors duration-200 shadow-lg hover:shadow-xl">Sign In</button>
+                </div>                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
+                    <button class="button-gradient text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg">Sign In</button>
                 </div>
             </div>
         </div>
     </nav>    <!-- Hero Section -->
-    <div class="gradient-bg relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-primary-900/30"></div>
-        <div class="max-w-7xl mx-auto py-20 px-4 sm:py-32 sm:px-6 lg:px-8 relative">
+    <div class="gradient-bg relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-primary-900/30 dark:from-primary-900/50 dark:to-primary-900/80"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h20v20H0z\" fill=\"%23fff\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-20"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-32 pb-20">
             <div class="text-center">
-                <h2 class="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-7xl drop-shadow-lg">
-                    Earn Money Online
-                </h2>
-                <p class="mt-6 text-xl text-white/90 max-w-2xl mx-auto">
-                    Complete tasks, surveys, and more to earn real cash rewards.
+                <div class="inline-block mb-4">
+                    <span class="px-3 py-1 text-sm text-primary-900 dark:text-primary-100 bg-primary-100 dark:bg-primary-900/50 rounded-full inline-flex items-center">
+                        <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+                        Live Opportunities Available
+                    </span>
+                </div>                <h1 class="text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl mb-8 tracking-tight">
+                    <span class="block text-gradient">Earn Money Online</span>
+                    <span class="block text-3xl sm:text-4xl mt-4 font-normal text-white/90">Start Earning Today</span>
+                </h1>
+                <p class="mt-6 text-xl text-white/90 dark:text-white/80 max-w-2xl mx-auto leading-relaxed">
+                    Complete tasks, surveys, and more to earn real cash rewards. Join thousands of satisfied members already earning.
                 </p>
-                <div class="mt-10">
-                    <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                        Start Earning Now
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="button-gradient px-10 py-4 rounded-full text-lg font-semibold text-white shadow-xl group">
+                        <span class="flex items-center justify-center">
+                            Start Earning Now
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="glass-effect px-10 py-4 rounded-full text-lg font-semibold text-white hover:bg-white/20 dark:hover:bg-gray-800/40 transition-all duration-300">
+                        Watch How It Works
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="py-12 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">                <!-- Feature 1 -->
-                <div class="p-8 bg-white rounded-xl shadow-lg hover-scale">
-                    <div class="text-primary text-5xl mb-6">
-                        <i class="fas fa-tasks bg-primary-50 p-5 rounded-full"></i>
+    </div>    <!-- Features Section -->
+    <div class="py-24 bg-white dark:bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h20v20H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary dark:text-primary-400 font-semibold text-sm tracking-wider uppercase">Why Choose Us</span>
+                <h2 class="mt-3 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
+                    <span class="text-gradient">Features</span> that Set Us Apart
+                </h2>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">Experience the best platform for online earning with our comprehensive features</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Feature 1 -->
+                <div class="group p-8 bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-600">
+                    <div class="text-primary dark:text-primary-400 text-5xl mb-6 relative">
+                        <div class="absolute inset-0 bg-primary dark:bg-primary-400 rounded-full opacity-10 scale-150 group-hover:scale-200 transition-transform duration-500"></div>
+                        <i class="fas fa-tasks bg-primary-50 dark:bg-primary-900/50 p-5 rounded-full relative z-10 group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Complete Tasks</h3>
-                    <p class="text-gray-600 leading-relaxed">Earn money by completing simple tasks and surveys tailored to your interests.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white">Complete Tasks</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Earn money completing simple tasks and surveys online.</p>
+                    <div class="mt-6 flex items-center text-primary dark:text-primary-400">
+                        <span class="text-sm font-semibold">Start Earning</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
                 </div>
                 <!-- Feature 2 -->
-                <div class="p-8 bg-white rounded-xl shadow-lg hover-scale">
-                    <div class="text-primary text-5xl mb-6">
-                        <i class="fas fa-gift bg-primary-50 p-5 rounded-full"></i>
+                <div class="group p-8 bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-600">
+                    <div class="text-primary dark:text-primary-400 text-5xl mb-6 relative">
+                        <div class="absolute inset-0 bg-primary dark:bg-primary-400 rounded-full opacity-10 scale-150 group-hover:scale-200 transition-transform duration-500"></div>
+                        <i class="fas fa-gift bg-primary-50 dark:bg-primary-900/50 p-5 rounded-full relative z-10 group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Rewards Program</h3>
-                    <p class="text-gray-600 leading-relaxed">Get bonus rewards and cashback for your consistent participation.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white">Rewards Program</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Get bonus rewards and cashback for your consistent participation.</p>
+                    <div class="mt-6 flex items-center text-primary dark:text-primary-400">
+                        <span class="text-sm font-semibold">Learn More</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
                 </div>
                 <!-- Feature 3 -->
-                <div class="p-8 bg-white rounded-xl shadow-lg hover-scale">
-                    <div class="text-primary text-5xl mb-6">
-                        <i class="fas fa-money-bill-wave bg-primary-50 p-5 rounded-full"></i>
+                <div class="group p-8 bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-600">
+                    <div class="text-primary dark:text-primary-400 text-5xl mb-6 relative">
+                        <div class="absolute inset-0 bg-primary dark:bg-primary-400 rounded-full opacity-10 scale-150 group-hover:scale-200 transition-transform duration-500"></div>
+                        <i class="fas fa-money-bill-wave bg-primary-50 dark:bg-primary-900/50 p-5 rounded-full relative z-10 group-hover:rotate-12 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">Quick Payouts</h3>
-                    <p class="text-gray-600 leading-relaxed">Withdraw your earnings easily through multiple payment methods.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800 dark:text-white">Quick Payouts</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">Withdraw your earnings easily through multiple payment methods.</p>
+                    <div class="mt-6 flex items-center text-primary dark:text-primary-400">
+                        <span class="text-sm font-semibold">Learn More</span>
+                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
     </div>    <!-- Pricing Section -->
-    <div class="py-24 bg-gray-50 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+    <div class="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent dark:from-primary-900/10"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M15 0l15 15H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-20"></div>
+        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold mb-4 text-gray-800 tracking-tight">Choose Your Success Path</h2>
-                <p class="text-xl text-gray-600">Select the perfect plan that suits your earning goals</p>
+                <span class="text-primary dark:text-primary-400 font-semibold text-sm tracking-wider uppercase">Pricing Plans</span>
+                <h2 class="mt-3 text-4xl font-bold mb-4 text-gray-800 dark:text-white tracking-tight sm:text-5xl">Choose Your Success Path</h2>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">Select the perfect plan that suits your earning goals. Start earning today!</p>
+                <div class="mt-8 inline-flex items-center p-1 bg-gray-100 dark:bg-gray-800 rounded-full">
+                    <button class="px-6 py-2 rounded-full bg-primary text-white text-sm font-medium">Monthly</button>
+                    <button class="px-6 py-2 rounded-full text-gray-600 dark:text-gray-400 text-sm font-medium hover:text-primary dark:hover:text-primary-400 transition-colors">Yearly</button>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-                <!-- Basic Plan -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale transition-all duration-300 border-2 border-transparent hover:border-primary-200">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">                <!-- Basic Plan -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
                     <div class="text-center mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Basic</h3>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Basic</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary">₹3,000</span>
-                            <span class="text-gray-500 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹3,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Basic task access
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Standard support
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Weekly payouts
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary rounded-xl font-semibold hover:bg-primary-600 transition-colors duration-200">
+                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
                         Get Started
                     </button>
-                </div>
-
-                <!-- Premium Plan -->
-                <div class="bg-gradient-to-b from-primary-50 to-white rounded-2xl shadow-2xl p-8 hover-scale transition-all duration-300 border-2 border-primary transform scale-105 relative">
-                    <div class="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-semibold">
+                </div>                <!-- Premium Plan -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-primary dark:border-primary-600 transform scale-105 relative">
+                    <div class="absolute -top-4 right-8 bg-primary dark:bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
                         POPULAR
                     </div>
                     <div class="text-center mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Premium</h3>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Premium</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary">₹6,000</span>
-                            <span class="text-gray-500 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹6,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Priority task access
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             24/7 Premium support
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Bi-weekly payouts
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Bonus rewards
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary rounded-xl font-semibold hover:bg-primary-600 transition-colors duration-200 shadow-lg hover:shadow-xl">
+                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
                         Get Premium Access
                     </button>
-                </div>
-
-                <!-- VIP Plan -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover-scale transition-all duration-300 border-2 border-transparent hover:border-primary-200">
+                </div>                <!-- VIP Plan -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
                     <div class="text-center mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">VIP</h3>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">VIP</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary">₹9,000</span>
-                            <span class="text-gray-500 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹9,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Exclusive VIP tasks
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Dedicated account manager
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             Daily payouts
                         </li>
-                        <li class="flex items-center text-gray-600">
-                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                        <li class="flex items-center text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check-circle text-primary dark:text-primary-400 mr-3"></i>
                             VIP rewards & bonuses
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary rounded-xl font-semibold hover:bg-primary-600 transition-colors duration-200">
+                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
                         Get VIP Access
                     </button>
                 </div>
