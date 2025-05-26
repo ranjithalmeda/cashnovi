@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-200">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CashNovi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    <script src="js/main.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#18BC96',
+                            50: '#E6F7F3',
+                            100: '#CCF0E7',
+                            200: '#99E1CF',
+                            300: '#66D2B7',
+                            400: '#33C39F',
+                            500: '#18BC96',
+                            600: '#139B7B',
+                            700: '#0E7A60',
+                            800: '#095945',
+                            900: '#04382A',
+                        }
+                    }
+                }            }
+        }
+    </script>
+    <style>
+        .button-gradient {
+            background: linear-gradient(135deg, #18BC96 0%, #139B7B 100%);
+            transition: all 0.3s ease;
+        }
+        .button-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(24, 188, 150, 0.2);
+        }
+
+        /* Mobile menu animations */
+        #mobile-menu-panel {
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        #mobile-menu-panel.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        #mobile-menu-panel:not(.hidden) {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 fixed w-full z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="block">
+                        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="h-20 w-auto transition-opacity">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">                        <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Home</a>
+                        <a href="about.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">About Us</a>
+                        <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Contact Us</a>
+                        <a href="price.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Price</a>
+                         <a href="tasks.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Tasks</a>
+                        <a href="privacy.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="inline-flex items-center justify-center p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200 rounded-lg">
+                        <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
+                    <button class="button-gradient text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg">Sign In</button>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary px-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" id="mobile-menu-icon-open"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="hidden" id="mobile-menu-icon-close"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile menu panel -->
+                <div id="mobile-menu-panel" class="hidden absolute top-20 left-0 right-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 ease-in-out transform origin-top md:hidden">
+                    <div class="space-y-4">
+                        <a href="index.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Home</a>
+                        <a href="about.html" class="block text-primary px-3 py-2 text-base font-medium">About Us</a>
+                        <a href="contact.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Contact Us</a>
+                        <a href="price.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Price</a>
+                        <a href="tasks.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Tasks</a>
+                        <a href="privacy.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Privacy Policy</a>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button class="button-gradient text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg w-full">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="pt-32 pb-20 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+                    About <span class="text-primary dark:text-primary-400">CashNovi</span>
+                </h1>
+                <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">
+                    Empowering individuals to earn money online through innovative opportunities
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Story Section -->
+    <div class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Our Story</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                        Founded in 2023, CashNovi emerged from a simple yet powerful idea: to create a platform that makes earning money online accessible to everyone. We understand the changing dynamics of work and income in the digital age.
+                    </p>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+                        Our mission is to provide legitimate, flexible earning opportunities that fit into your lifestyle. Whether you're a student, professional, or someone looking for additional income, CashNovi is here to support your financial journey.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-primary/10 rounded-3xl transform rotate-3"></div>
+                    <img src="images/image1.png" alt="Our Story" class="relative rounded-2xl shadow-xl">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Values Section -->
+    <div class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Our Values</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="text-primary dark:text-primary-400 text-4xl mb-4">
+                        <i class="fas fa-trust"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Trust & Transparency</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        We believe in building lasting relationships through honest communication and transparent operations.
+                    </p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="text-primary dark:text-primary-400 text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Community First</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Our success is measured by the success and satisfaction of our community members.
+                    </p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="text-primary dark:text-primary-400 text-4xl mb-4">
+                        <i class="fas fa-innovation"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Innovation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        We continuously evolve and improve our platform to provide the best earning opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Our Leadership Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-primary-100 dark:bg-primary-900/50"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">John Smith</h3>
+                    <p class="text-primary dark:text-primary-400">CEO & Founder</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-primary-100 dark:bg-primary-900/50"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Sarah Johnson</h3>
+                    <p class="text-primary dark:text-primary-400">Head of Operations</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-primary-100 dark:bg-primary-900/50"></div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Michael Chen</h3>
+                    <p class="text-primary dark:text-primary-400">Technical Director</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Us Section -->
+    <div class="py-20 bg-primary dark:bg-primary-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Start Earning?</h2>
+            <p class="text-xl mb-8 text-white/90">Join thousands of satisfied members already earning with CashNovi</p>
+            <button class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
+                Get Started Today
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">CashNovi</h3>
+                    <p class="text-gray-400">Empowering individuals to earn online.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p class="text-gray-400">&copy; 2025 CashNovi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

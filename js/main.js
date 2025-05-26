@@ -1,7 +1,6 @@
 // DOM Elements
-document.addEventListener('DOMContentLoaded', () => {
-    const signInButton = document.querySelector('button:contains("Sign In")');
-    const startEarningButton = document.querySelector('button:contains("Start Earning Now")');
+document.addEventListener('DOMContentLoaded', () => {    const signInButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Sign In');
+    const startEarningButton = Array.from(document.querySelectorAll('button')).find(button => button.textContent.trim() === 'Start Earning Now');
 
     // Animation for numbers
     function animateValue(element, start, end, duration) {

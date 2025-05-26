@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-200">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CashNovi - Earn Money Online</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>CashNovi - Earn Money Online</title>    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
     <script src="js/main.js" defer></script>
-    <script src="js/theme.js" defer></script>    <script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -133,33 +134,70 @@
             0% { transform: translateX(-100%) rotate(45deg); }
             100% { transform: translateX(100%) rotate(45deg); }
         }
+
+        /* Mobile menu animations */
+        #mobile-menu-panel {
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        #mobile-menu-panel.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        #mobile-menu-panel:not(.hidden) {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">    <!-- Navigation -->    <nav class="bg-white dark:bg-gray-800 fixed w-full z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0">     
                     <a href="#" class="block">
-                        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="h-20 w-auto transition-opacity">
+                        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="h-14 w-auto object-contain">
                     </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Dashboard</a>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Earn</a>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Rewards</a>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Profile</a>
+                </div>                <div class="hidden md:block">                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">About Us</a>
+                        <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Contact Us</a>
+                        <a href="price.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Price</a>
+                         <a href="tasks.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Tasks</a>
+                        <a href="privacy.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Privacy Policy</a>
                     </div>
-                </div>                <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                </div><div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="inline-flex items-center justify-center p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200 rounded-lg">
+                        <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <svg id="theme-toggle-light-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
                         </svg>
                     </button>
                     <button class="button-gradient text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg">Sign In</button>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary px-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" id="mobile-menu-icon-open"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="hidden" id="mobile-menu-icon-close"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile menu panel -->
+                <div id="mobile-menu-panel" class="hidden absolute top-20 left-0 right-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 ease-in-out transform origin-top md:hidden">
+                    <div class="space-y-4">
+                        <a href="index.html" class="block text-primary px-3 py-2 text-base font-medium">Home</a>
+                        <a href="about.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">About Us</a>
+                        <a href="contact.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Contact Us</a>
+                        <a href="price.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Price</a>
+                        <a href="tasks.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Tasks</a>
+                        <a href="privacy.html" class="block text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-base font-medium transition-all duration-300">Privacy Policy</a>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button class="button-gradient text-white px-8 py-3 rounded-full text-sm font-medium shadow-lg w-full">Sign In</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -300,7 +338,7 @@
                         Get Started
                     </button>
                 </div>                <!-- Premium Plan -->
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-primary dark:border-primary-600 transform scale-105 relative">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-primary dark:border-primary-600 transform scale-105 relative">
                     <div class="absolute -top-4 right-8 bg-primary dark:bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
                         POPULAR
                     </div>
@@ -333,7 +371,7 @@
                         Get Premium Access
                     </button>
                 </div>                <!-- VIP Plan -->
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
                     <div class="text-center mb-8">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">VIP</h3>
                         <div class="flex items-baseline justify-center">
@@ -400,6 +438,166 @@
                 </div>
             </div>
         </div>
+
+        
+<!-- App Download Section -->
+<div class="py-24 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-600/10 dark:from-primary-900/20 dark:to-primary-600/20"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M20 0l20 20H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-20"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Content Side -->
+            <div class="text-center lg:text-left">
+                <div class="inline-block mb-4">
+                    <span class="px-4 py-2 text-sm text-primary-900 dark:text-primary-100 bg-primary-100 dark:bg-primary-900/50 rounded-full inline-flex items-center">
+                        <i class="fas fa-mobile-alt mr-2"></i>
+                        Download Our App
+                    </span>
+                </div>
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl mb-6">
+                    <span class="text-gradient">Earn On The Go</span>
+                    <span class="block text-3xl sm:text-4xl mt-2 font-normal text-gray-700 dark:text-gray-300">With Our Mobile App</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    Take your earning potential anywhere with our feature-rich mobile app. Complete tasks, track earnings, and get paid faster than ever before.
+                </p>
+                
+                <!-- App Features -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-bolt text-primary dark:text-primary-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">Instant Notifications</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-chart-line text-primary dark:text-primary-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">Real-time Earnings</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-shield-alt text-primary dark:text-primary-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">Secure Payments</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-clock text-primary dark:text-primary-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-700 dark:text-gray-300 font-medium">24/7 Access</span>
+                    </div>
+                </div>
+
+                <!-- Download Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <!-- App Store Button -->
+                    <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        <div class="flex items-center">
+                            <i class="fab fa-apple text-2xl mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs text-gray-300">Download on the</div>
+                                <div class="text-lg font-semibold">App Store</div>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Google Play Button -->
+                    <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        <div class="flex items-center">
+                            <i class="fab fa-google-play text-2xl mr-3"></i>
+                            <div class="text-left">
+                                <div class="text-xs text-gray-300">Get it on</div>
+                                <div class="text-lg font-semibold">Google Play</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- QR Code Option -->
+                <div class="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg inline-block">
+                    <div class="text-center">
+                        <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                            <i class="fas fa-qrcode text-3xl text-gray-500 dark:text-gray-400"></i>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Scan QR code to download</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phone Mockup Side -->
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="relative">
+                    <!-- Phone Frame -->
+                    <div class="relative w-64 h-[500px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
+                        <div class="w-full h-full bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden relative">
+                            <!-- Phone Screen Content -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 p-6">
+                                <!-- Status Bar -->
+                                <div class="flex justify-between items-center text-white text-xs mb-8">
+                                    <span>9:41</span>
+                                    <div class="flex items-center space-x-1">
+                                        <i class="fas fa-signal"></i>
+                                        <i class="fas fa-wifi"></i>
+                                        <i class="fas fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- App Header -->
+                                <div class="text-center text-white mb-8">
+                                    <h3 class="text-xl font-bold">CashNovi</h3>
+                                    <p class="text-sm opacity-90">Earn Money Online</p>
+                                </div>
+                                
+                                <!-- Earnings Display -->
+                                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6">
+                                    <div class="text-center text-white">
+                                        <p class="text-sm opacity-90">Today's Earnings</p>
+                                        <p class="text-2xl font-bold">₹1,250</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Quick Actions -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
+                                        <i class="fas fa-tasks text-white text-lg mb-2"></i>
+                                        <p class="text-white text-xs">Tasks</p>
+                                    </div>
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
+                                        <i class="fas fa-wallet text-white text-lg mb-2"></i>
+                                        <p class="text-white text-xs">Wallet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center text-white shadow-lg floating">
+                        <i class="fas fa-download text-xl"></i>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white shadow-lg floating" style="animation-delay: 1s;">
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
     </div>    <!-- Footer -->
     <footer class="bg-gray-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-600/10"></div>
