@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CashNovi - Earn Money Online</title>    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+  <link rel="icon" type="image/png" sizes="64x64" href="cashnoviwithlogo-64x64.png">
+    <title>CashNovi - Earn Money Online</title>    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/cashnovitransparent.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="js/main.js" defer></script>
     <script src="js/theme.js" defer></script>
+    <script src="js/pricing.js" defer></script>
     <script src="js/mobile-menu.js" defer></script>
+    <script src="js/splash.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -34,7 +39,9 @@
                 },
             },
         }
-    </script><style>        /* Base styles */
+    </script>
+    <style>
+        /* Base styles */
         .gradient-text {
             background: linear-gradient(to right, #18BC96, #139B7B);
             -webkit-background-clip: text;
@@ -102,7 +109,8 @@
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
-        }        .transform-3d {
+        }
+        .transform-3d {
             transform-style: preserve-3d;
             transition: transform 0.5s;
             perspective: 1000px;
@@ -150,22 +158,27 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">    <!-- Navigation -->    <nav class="bg-white dark:bg-gray-800 fixed w-full z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-200">    
+    <!-- Navigation -->    
+    <nav class="bg-white dark:bg-gray-800 fixed w-full z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">     
-                    <a href="#" class="block">
-                        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="h-14 w-auto object-contain">
-                    </a>
-                </div>                <div class="hidden md:block">                    <div class="ml-10 flex items-baseline space-x-8">
+<div class="flex-shrink-0">
+    <a href="#" class="block">
+        <img src="images/cashnoviwithlogo.png" alt="CashNovi Logo" class="max-h-36 w-auto object-contain">
+    </a>
+</div>             
+                <div class="hidden md:block">                    
+                    <div class="ml-10 flex items-baseline space-x-8">
                         <a href="index.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Home</a>
                         <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">About Us</a>
                         <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Contact Us</a>
                         <a href="price.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Price</a>
-                         <a href="tasks.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Tasks</a>
+                        <a href="tasks.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Tasks</a>
                         <a href="privacy.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary px-3 py-2 text-sm font-medium transition-all duration-300 border-b-2 border-transparent hover:border-primary">Privacy Policy</a>
                     </div>
-                </div><div class="flex items-center space-x-4">
+                </div>
+                <div class="flex items-center space-x-4">
                     <button id="theme-toggle" class="inline-flex items-center justify-center p-2 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-200 rounded-lg">
                         <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -201,7 +214,8 @@
                 </div>
             </div>
         </div>
-    </nav>    <!-- Hero Section -->
+    </nav>    
+    <!-- Hero Section -->
     <div class="gradient-bg relative overflow-hidden min-h-screen flex items-center">
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-gradient-to-br from-primary-400/30 to-primary-900/30 dark:from-primary-900/50 dark:to-primary-900/80"></div>
@@ -214,7 +228,8 @@
                         <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
                         Live Opportunities Available
                     </span>
-                </div>                <h1 class="text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl mb-8 tracking-tight">
+                </div>                
+                <h1 class="text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl mb-8 tracking-tight">
                     <span class="block text-gradient">Earn Money Online</span>
                     <span class="block text-3xl sm:text-4xl mt-4 font-normal text-white/90">Start Earning Today</span>
                 </h1>
@@ -236,7 +251,8 @@
                 </div>
             </div>
         </div>
-    </div>    <!-- Features Section -->
+    </div>    
+    <!-- Features Section -->
     <div class="py-24 bg-white dark:bg-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h20v20H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-10"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -295,7 +311,8 @@
                 </div>
             </div>
         </div>
-    </div>    <!-- Pricing Section -->
+    </div>    
+    <!-- Pricing Section -->
     <div class="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent dark:from-primary-900/10"></div>
@@ -307,18 +324,19 @@
                 <h2 class="mt-3 text-4xl font-bold mb-4 text-gray-800 dark:text-white tracking-tight sm:text-5xl">Choose Your Success Path</h2>
                 <p class="mt-4 text-xl text-gray-600 dark:text-gray-300">Select the perfect plan that suits your earning goals. Start earning today!</p>
                 <div class="mt-8 inline-flex items-center p-1 bg-gray-100 dark:bg-gray-800 rounded-full">
-                    <button class="px-6 py-2 rounded-full bg-primary text-white text-sm font-medium">Monthly</button>
-                    <button class="px-6 py-2 rounded-full text-gray-600 dark:text-gray-400 text-sm font-medium hover:text-primary dark:hover:text-primary-400 transition-colors">Yearly</button>
+                    <button data-period="monthly" class="px-6 py-2 rounded-full bg-primary text-white text-sm font-medium transition-colors duration-200">Packages</button>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">                <!-- Basic Plan -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">                
+                <!-- Basic Plan -->
                 <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
                     <div class="text-center mb-8">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Basic</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹3,000</span>
-                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400" data-price="basic">₹3,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2 period-text">/month</span>
                         </div>
+                        <span data-saving="basic" class="hidden mt-2 text-sm text-primary">Save ₹7,200 yearly</span>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-gray-600 dark:text-gray-300">
@@ -334,10 +352,13 @@
                             Weekly payouts
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
+                    <br/>
+                    <br/>
+                    <button onclick="selectPlan('basic')" class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
                         Get Started
                     </button>
-                </div>                <!-- Premium Plan -->
+                </div>                
+                <!-- Premium Plan -->
                 <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-primary dark:border-primary-600 transform scale-105 relative">
                     <div class="absolute -top-4 right-8 bg-primary dark:bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
                         POPULAR
@@ -345,9 +366,10 @@
                     <div class="text-center mb-8">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Premium</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹6,000</span>
-                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400" data-price="premium">₹6,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2 period-text">/month</span>
                         </div>
+                        <span data-saving="premium" class="hidden mt-2 text-sm text-primary">Save ₹14,400 yearly</span>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-gray-600 dark:text-gray-300">
@@ -367,17 +389,19 @@
                             Bonus rewards
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+                    <button onclick="selectPlan('premium')" class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
                         Get Premium Access
                     </button>
-                </div>                <!-- VIP Plan -->
+                </div>                
+                <!-- VIP Plan -->
                 <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 hover-scale transform-3d transition-all duration-300 border-2 border-transparent hover:border-primary-200 dark:hover:border-primary-700">
                     <div class="text-center mb-8">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">VIP</h3>
                         <div class="flex items-baseline justify-center">
-                            <span class="text-4xl font-bold text-primary dark:text-primary-400">₹9,000</span>
-                            <span class="text-gray-500 dark:text-gray-400 ml-2">/month</span>
+                            <span class="text-4xl font-bold text-primary dark:text-primary-400" data-price="vip">₹9,000</span>
+                            <span class="text-gray-500 dark:text-gray-400 ml-2 period-text">/month</span>
                         </div>
+                        <span data-saving="vip" class="hidden mt-2 text-sm text-primary">Save ₹21,600 yearly</span>
                     </div>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center text-gray-600 dark:text-gray-300">
@@ -397,13 +421,14 @@
                             VIP rewards & bonuses
                         </li>
                     </ul>
-                    <button class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
+                    <button onclick="selectPlan('vip')" class="w-full py-4 px-6 text-center text-white bg-primary dark:bg-primary-600 rounded-xl font-semibold hover:bg-primary-600 dark:hover:bg-primary-700 transition-colors duration-200">
                         Get VIP Access
                     </button>
                 </div>
             </div>
         </div>
-    </div><!-- How It Works Section -->
+    </div>
+    <!-- How It Works Section -->
     <div class="py-20 bg-white relative overflow-hidden">
         <div class="absolute inset-0 bg-primary-50/50"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -422,7 +447,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-800">Complete Tasks</h3>
                     <p class="text-gray-600 leading-relaxed">Choose from available tasks and surveys</p>
-                </div>                <div class="text-center hover-scale bg-white p-8 rounded-2xl shadow-lg">
+                </div>                
+                <div class="text-center hover-scale bg-white p-8 rounded-2xl shadow-lg">
                     <div class="bg-gradient-to-br from-primary to-primary-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <span class="text-2xl text-white font-bold">3</span>
                     </div>
@@ -438,167 +464,146 @@
                 </div>
             </div>
         </div>
-
-        
-<!-- App Download Section -->
-<div class="py-24 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-600/10 dark:from-primary-900/20 dark:to-primary-600/20"></div>
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M20 0l20 20H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-20"></div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Content Side -->
-            <div class="text-center lg:text-left">
-                <div class="inline-block mb-4">
-                    <span class="px-4 py-2 text-sm text-primary-900 dark:text-primary-100 bg-primary-100 dark:bg-primary-900/50 rounded-full inline-flex items-center">
-                        <i class="fas fa-mobile-alt mr-2"></i>
-                        Download Our App
-                    </span>
-                </div>
-                <h2 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl mb-6">
-                    <span class="text-gradient">Earn On The Go</span>
-                    <span class="block text-3xl sm:text-4xl mt-2 font-normal text-gray-700 dark:text-gray-300">With Our Mobile App</span>
-                </h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                    Take your earning potential anywhere with our feature-rich mobile app. Complete tasks, track earnings, and get paid faster than ever before.
-                </p>
-                
-                <!-- App Features -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-bolt text-primary dark:text-primary-400 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 dark:text-gray-300 font-medium">Instant Notifications</span>
+    <!-- App Download Section -->
+    <div class="py-24 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-600/10 dark:from-primary-900/20 dark:to-primary-600/20"></div>
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M20 0l20 20H0z\" fill=\"%2318BC96\" fill-opacity=\"0.05\"/%3E%3C/svg%3E')] opacity-20"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Content Side -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-block mb-4">
+                        <span class="px-4 py-2 text-sm text-primary-900 dark:text-primary-100 bg-primary-100 dark:bg-primary-900/50 rounded-full inline-flex items-center">
+                            <i class="fas fa-mobile-alt mr-2"></i>
+                            Download Our App
+                        </span>
                     </div>
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-chart-line text-primary dark:text-primary-400 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 dark:text-gray-300 font-medium">Real-time Earnings</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-shield-alt text-primary dark:text-primary-400 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 dark:text-gray-300 font-medium">Secure Payments</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-clock text-primary dark:text-primary-400 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 dark:text-gray-300 font-medium">24/7 Access</span>
-                    </div>
-                </div>
-
-                <!-- Download Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <!-- App Store Button -->
-                    <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl mb-6">
+                        <span class="text-gradient">Earn On The Go</span>
+                        <span class="block text-3xl sm:text-4xl mt-2 font-normal text-gray-700 dark:text-gray-300">With Our Mobile App</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Take your earning potential anywhere with our feature-rich mobile app. Complete tasks, track earnings, and get paid faster than ever before.
+                    </p>
+                    <!-- App Features -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                         <div class="flex items-center">
-                            <i class="fab fa-apple text-2xl mr-3"></i>
-                            <div class="text-left">
-                                <div class="text-xs text-gray-300">Download on the</div>
-                                <div class="text-lg font-semibold">App Store</div>
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-bolt text-primary dark:text-primary-400 text-sm"></i>
                             </div>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Instant Notifications</span>
                         </div>
-                    </a>
-                    
-                    <!-- Google Play Button -->
-                    <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
                         <div class="flex items-center">
-                            <i class="fab fa-google-play text-2xl mr-3"></i>
-                            <div class="text-left">
-                                <div class="text-xs text-gray-300">Get it on</div>
-                                <div class="text-lg font-semibold">Google Play</div>
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-chart-line text-primary dark:text-primary-400 text-sm"></i>
                             </div>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Real-time Earnings</span>
                         </div>
-                    </a>
-                </div>
-
-                <!-- QR Code Option -->
-                <div class="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg inline-block">
-                    <div class="text-center">
-                        <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                            <i class="fas fa-qrcode text-3xl text-gray-500 dark:text-gray-400"></i>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-shield-alt text-primary dark:text-primary-400 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">Secure Payments</span>
                         </div>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Scan QR code to download</p>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-8 h-8 bg-primary-100 dark:bg-primary-900/50 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-clock text-primary dark:text-primary-400 text-sm"></i>
+                            </div>
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">24/7 Access</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Phone Mockup Side -->
-            <div class="relative flex justify-center lg:justify-end">
-                <div class="relative">
-                    <!-- Phone Frame -->
-                    <div class="relative w-64 h-[500px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
-                        <div class="w-full h-full bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden relative">
-                            <!-- Phone Screen Content -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 p-6">
-                                <!-- Status Bar -->
-                                <div class="flex justify-between items-center text-white text-xs mb-8">
-                                    <span>9:41</span>
-                                    <div class="flex items-center space-x-1">
-                                        <i class="fas fa-signal"></i>
-                                        <i class="fas fa-wifi"></i>
-                                        <i class="fas fa-battery-three-quarters"></i>
-                                    </div>
-                                </div>
-                                
-                                <!-- App Header -->
-                                <div class="text-center text-white mb-8">
-                                    <h3 class="text-xl font-bold">CashNovi</h3>
-                                    <p class="text-sm opacity-90">Earn Money Online</p>
-                                </div>
-                                
-                                <!-- Earnings Display -->
-                                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6">
-                                    <div class="text-center text-white">
-                                        <p class="text-sm opacity-90">Today's Earnings</p>
-                                        <p class="text-2xl font-bold">₹1,250</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Quick Actions -->
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
-                                        <i class="fas fa-tasks text-white text-lg mb-2"></i>
-                                        <p class="text-white text-xs">Tasks</p>
-                                    </div>
-                                    <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
-                                        <i class="fas fa-wallet text-white text-lg mb-2"></i>
-                                        <p class="text-white text-xs">Wallet</p>
-                                    </div>
+                    <!-- Download Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!-- App Store Button -->
+                    <!--    <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-apple text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs text-gray-300">Download on the</div>
+                                    <div class="text-lg font-semibold">App Store</div>
                                 </div>
                             </div>
+                        </a> -->
+                        <!-- Google Play Button -->
+                        <a href="#" class="group inline-flex items-center justify-center px-6 py-3 bg-black hover:bg-gray-800 text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            <div class="flex items-center">
+                                <i class="fab fa-google-play text-2xl mr-3"></i>
+                                <div class="text-left">
+                                    <div class="text-xs text-gray-300">Get it on</div>
+                                    <div class="text-lg font-semibold">Google Play</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                 <!-- QR Code Option -->
+                  <!--  <div class="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg inline-block">
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                                <i class="fas fa-qrcode text-3xl text-gray-500 dark:text-gray-400"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Scan QR code to download</p>
                         </div>
-                    </div>
-                    
-                    <!-- Floating Elements -->
-                    <div class="absolute -top-4 -right-4 w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center text-white shadow-lg floating">
-                        <i class="fas fa-download text-xl"></i>
-                    </div>
-                    <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white shadow-lg floating" style="animation-delay: 1s;">
-                        <i class="fas fa-star text-sm"></i>
+                    </div> -->
+                </div>
+                <!-- Phone Mockup Side -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <!-- Phone Frame -->
+                        <div class="relative w-64 h-[500px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
+                            <div class="w-full h-full bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden relative">
+                                <!-- Phone Screen Content -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary-400 to-primary-600 p-6">
+                                    <!-- Status Bar -->
+                                    <div class="flex justify-between items-center text-white text-xs mb-8">
+                                        <span>9:41</span>
+                                        <div class="flex items-center space-x-1">
+                                            <i class="fas fa-signal"></i>
+                                            <i class="fas fa-wifi"></i>
+                                            <i class="fas fa-battery-three-quarters"></i>
+                                        </div>
+                                    </div>
+                                    <!-- App Header -->
+                                    <div class="text-center text-white mb-8">
+                                        <h3 class="text-xl font-bold">CashNovi</h3>
+                                        <p class="text-sm opacity-90">Earn Money Online</p>
+                                    </div>
+                                    <!-- Earnings Display -->
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mb-6">
+                                        <div class="text-center text-white">
+                                            <p class="text-sm opacity-90">Today's Earnings</p>
+                                            <p class="text-2xl font-bold">₹1,250</p>
+                                        </div>
+                                    </div>
+                                    <!-- Quick Actions -->
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
+                                            <i class="fas fa-tasks text-white text-lg mb-2"></i>
+                                            <p class="text-white text-xs">Tasks</p>
+                                        </div>
+                                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-3 text-center">
+                                            <i class="fas fa-wallet text-white text-lg mb-2"></i>
+                                            <p class="text-white text-xs">Wallet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-4 -right-4 w-16 h-16 bg-primary-400 rounded-full flex items-center justify-center text-white shadow-lg floating">
+                            <i class="fas fa-download text-xl"></i>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white shadow-lg floating" style="animation-delay: 1s;">
+                            <i class="fas fa-star text-sm"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-    </div>
-</div>
-
-    </div>
-</div>
-
-    </div>
-</div>
-
-
-    </div>    <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary-600/10"></div>
         <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative">
@@ -610,12 +615,15 @@
                 <div>
                     <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">Home</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">About Us</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">How It Works</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">Contact</a></li>
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors duration-200">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors duration-200">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors duration-200">Contact us </a></li>
+                        <li><a href="price.html" class="text-gray-300 hover:text-primary transition-colors duration-200">Price</a></li>
+                        <li><a href="tasks.html" class="text-gray-300 hover:text-primary transition-colors duration-200">Tasks</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-primary transition-colors duration-200">Privacy Policy</a></li>
                     </ul>
-                </div>                <div>
+                </div>                
+                <div>
                     <h4 class="text-lg font-bold mb-6 text-white">Support</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-200">FAQ</a></li>
@@ -635,7 +643,7 @@
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-                <p class="text-gray-400">&copy; 2025 CashNovi. All rights reserved.</p>
+                <p class="text-gray-400">© 2025 CashNovi. All rights reserved.</p>
             </div>
         </div>
     </footer>
